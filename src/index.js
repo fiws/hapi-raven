@@ -12,6 +12,7 @@ exports.register = function (server, options, next) {
     }
   }, function (request, event) {
     const err = event.data;
+    if (err instanceof Error !== true) return; // no error, don't log
     const meta = {
       tags: options.events
     };
