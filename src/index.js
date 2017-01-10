@@ -13,6 +13,8 @@ exports.register = function (server, options, next) {
   }, function (request, event) {
     const err = event.data;
     if (err instanceof Error !== true) return; // no error, don't log
+    // don't log validation "errors"
+    if (err.tags && err.tags.some(t => t === 'validation')) return;
     const meta = {
       tags: options.events
     };
