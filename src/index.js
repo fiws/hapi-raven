@@ -8,7 +8,8 @@ exports.register = function (server, options, next) {
   server.on({
     name: 'request-internal',
     filter: {
-      tags: [ 'error' ]
+      all: true,
+      tags: [ 'internal', 'implementation', 'error' ]
     }
   }, function (request, event) {
     const err = event.data;
