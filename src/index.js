@@ -9,7 +9,7 @@ exports.register = function (server, options, next) {
     name: 'request-internal',
     filter: {
       all: true,
-      tags: [ 'internal', 'implementation', 'error' ]
+      tags: [ 'internal', 'error' ]
     }
   }, function (request, event) {
     const err = event.data;
